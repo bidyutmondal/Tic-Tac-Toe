@@ -249,7 +249,7 @@ const cellId = {"cell0":{row:0, col:0},
 
 //Execution Starts
 let grid
-let cpu = false
+let cpu = true
 let r = 0
 let c = 0
 
