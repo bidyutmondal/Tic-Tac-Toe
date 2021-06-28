@@ -289,7 +289,7 @@ function handleClick(e) {
   let currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS
   placeMark(cell, currentClass)
   //fill the grid
-  //update the values of r and c
+  //update the values of r and c  
   grid[cellId[cell.id].row][cellId[cell.id].col] = 'x';
   if (checkWin(currentClass)) {
     endGame(false)
