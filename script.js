@@ -26,7 +26,7 @@ class Move
 	}
 }
 
-let player = 'x', opponent = 'o';
+let player = 'o', opponent = 'x';
 
 // This function returns true if there are moves
 // remaining on the grid. It returns false if
@@ -289,7 +289,8 @@ function handleClick(e) {
   placeMark(cell, currentClass)
   //fill the grid
   //update the values of r and c
-  grid[cellId[cell.id].row][cellId[cell.id].col] = 'o';
+  if(grid[cellId[cell.id].row][cellId[cell.id].col] !='_') return;
+  grid[cellId[cell.id].row][cellId[cell.id].col] = 'x';
   if (checkWin(currentClass)) {
     endGame(false)
   } else if (isDraw()) {
@@ -301,9 +302,11 @@ function handleClick(e) {
   if(cpu){
     //get best move from minimax
     let bestMove = findBestMove(grid);
-    grid[bestMove.row][bestMove.col] = 'x'
+    grid[bestMove.row][bestMove.col] = 'o'
     //place mark in the board
-    cell = document.getElementById(cellPos[bestMove.row][bestMove.col]) //this should be updated
+    cell = document.getElementById(cellPos[bestMove.row][bestMove.col])
+	//disable the cell that is marked by the computer
+	document.getElementById(cellPos[bestMove.row][bestMove.col]).disabled = true; 	
     currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS
     placeMark(cell, currentClass)
     if (checkWin(currentClass)) {
