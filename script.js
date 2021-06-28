@@ -285,7 +285,7 @@ function startGame() {
 
 function handleClick(e) {
   let cell = e.target
-  if(grid[cellId[cell.id].row][cellId[cell.id].col] !='_') return;
+  //if(grid[cellId[cell.id].row][cellId[cell.id].col] !='_') return;
   let currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS
   placeMark(cell, currentClass)
   //fill the grid
